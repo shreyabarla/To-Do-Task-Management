@@ -1,0 +1,33 @@
+.navbar{
+
+background:#2563eb;
+
+color:white;
+
+padding:20px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+box-shadow:0 3px 8px rgba(0,0,0,.15);
+
+}
+
+.navbar h1{
+
+font-size:30px;
+
+}
+
+@media(max-width:768px){
+
+.navbar h1{
+
+font-size:22px;
+
+}
+
+}

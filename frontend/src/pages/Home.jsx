@@ -6,6 +6,7 @@ import ErrorMessage from "../components/ErrorMessage";
 import EmptyState from "../components/EmptyState";
 
 import useTasks from "../hooks/useTasks";
+import "../styles/Home.css";
 
 function Home() {
   const {
@@ -23,7 +24,7 @@ function Home() {
     <>
       <Navbar />
 
-      <main style={{ padding: "20px" }}>
+      <main className="home">
         <h2>Welcome to Smart To-Do Manager</h2>
 
         {loading && <Loading />}

@@ -1,0 +1,19 @@
+.home{
+
+padding:40px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+.home h2{
+
+margin-bottom:30px;
+
+font-size:28px;
+
+}
