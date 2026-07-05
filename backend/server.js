@@ -37,7 +37,7 @@ app.get("/api/health", (req, res) => {
 });
 
 // Task Routes
-app.use("/tasks", taskRoutes);
+app.use("/api/tasks", taskRoutes);
 
 // Error Handling Middleware
 app.use(notFound);

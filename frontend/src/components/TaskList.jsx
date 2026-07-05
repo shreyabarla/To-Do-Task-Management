@@ -1,6 +1,10 @@
 import TaskItem from "./TaskItem";
 
-function TaskList({ tasks }) {
+function TaskList({
+  tasks,
+  removeTask,
+  toggleComplete,
+  }) {
 
   return (
 
@@ -12,8 +16,10 @@ function TaskList({ tasks }) {
 
       {tasks.map((task) => (
         <TaskItem
-          key={task.id}
+          key={task._id}
           task={task}
+          removeTask={removeTask}
+          toggleComplete={toggleComplete}
         />
       ))}
 

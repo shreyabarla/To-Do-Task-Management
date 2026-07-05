@@ -12,15 +12,20 @@ import "../styles/Home.css";
 
 function Home() {
   const {
-    tasks,
-    loading,
-    error,
-    fetchTasks,
+  tasks,
+  loading,
+  error,
+  fetchTasks,
+  addTask,
+  removeTask,
+  toggleComplete,
   } = useTasks();
 
   useEffect(() => {
     fetchTasks();
   }, []);
+
+  console.log("Tasks state:", tasks);
 
   return (
     <>
@@ -29,7 +34,7 @@ function Home() {
       <main className="home">
         <h2>Welcome to Smart To-Do Manager</h2>
 
-        <TaskForm />
+        <TaskForm addTask={addTask} />
 
         {loading && <Loading />}
 
@@ -38,7 +43,11 @@ function Home() {
         {!loading && !error && tasks.length === 0 ? (
           <EmptyState />
         ) : (
-          <TaskList tasks={tasks} />
+          <TaskList
+            tasks={tasks}
+            removeTask={removeTask}
+            toggleComplete={toggleComplete}
+          />
         )}
       </main>
     </>

@@ -1,13 +1,21 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
 import "../styles/TaskItem.css";
 
-function TaskItem({ task }) {
+function TaskItem({
+  task,
+  removeTask,
+  toggleComplete,
+}) {
   return (
     <div className="task-card">
 
       <div className="task-content">
 
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          checked={task.completed}
+          onChange={() => toggleComplete(task)}
+        />
 
         <span>{task.title}</span>
 
@@ -15,15 +23,22 @@ function TaskItem({ task }) {
 
       <div className="task-actions">
 
-        <button className="edit-btn">
+        <button
+          className="edit-btn">
           <FaEdit />
           Edit
         </button>
 
-        <button className="delete-btn">
+        <button
+          className="delete-btn"
+          onClick={() => {
+            console.log("Deleting:", task);
+            removeTask(task._id);
+          }}
+        >
           <FaTrash />
-          Delete
-        </button>
+            Delete
+          </button>
 
       </div>
 
