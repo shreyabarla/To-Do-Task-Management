@@ -1,11 +1,12 @@
-body {
-  margin: 0;
-  padding: 0;
-  background: #F8FAFC;
-  font-family: "Poppins", sans-serif;
-}
-
-.container {
+.home {
   width: 60%;
   margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.home h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #1E293B;
 }

@@ -1,45 +1,48 @@
-import Header from "../components/Header";
+import { useEffect } from "react";
+
+import Navbar from "../components/Navbar";
+import Loading from "../components/Loading";
+import ErrorMessage from "../components/ErrorMessage";
+import EmptyState from "../components/EmptyState";
 import TaskForm from "../components/TaskForm";
 import TaskList from "../components/TaskList";
 
-import { useState } from "react";
-
+import useTasks from "../hooks/useTasks";
 import "../styles/Home.css";
 
 function Home() {
+  const {
+    tasks,
+    loading,
+    error,
+    fetchTasks,
+  } = useTasks();
 
-  const [tasks, setTasks] = useState([]);
-
-  const addTask = (title) => {
-
-    const newTask = {
-
-      id: Date.now(),
-
-      title,
-
-      completed: false,
-
-    };
-
-    setTasks([...tasks, newTask]);
-
-  };
+  useEffect(() => {
+    fetchTasks();
+  }, [fetchTasks]);
 
   return (
+    <>
+      <Navbar />
 
-    <div className="container">
+      <main className="home">
+        <h2>Welcome to Smart To-Do Manager</h2>
 
-      <Header />
+        <TaskForm />
 
-      <TaskForm addTask={addTask} />
+        {loading && <Loading />}
 
-      <TaskList tasks={tasks} />
+        {error && <ErrorMessage message={error} />}
 
-    </div>
-
+        {!loading && !error && tasks.length === 0 ? (
+          <EmptyState />
+        ) : (
+          <TaskList tasks={tasks} />
+        )}
+      </main>
+    </>
   );
-
 }
 
 export default Home;
