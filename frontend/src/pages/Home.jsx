@@ -20,7 +20,7 @@ function Home() {
 
   useEffect(() => {
     fetchTasks();
-  }, [fetchTasks]);
+  }, []);
 
   return (
     <>
