@@ -1,0 +1,23 @@
+.header {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 25px;
+}
+
+.header-icon {
+  font-size: 45px;
+  color: #2563EB;
+  margin-bottom: 10px;
+}
+
+.header h1 {
+  color: #1E293B;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: #64748B;
+}
