@@ -4,12 +4,10 @@ function TaskList({
   tasks,
   removeTask,
   toggleComplete,
-  }) {
-
+  editTask,
+}) {
   return (
-
     <div>
-
       <h2 style={{ marginBottom: "20px", color: "#1E293B" }}>
         My Tasks
       </h2>
@@ -20,11 +18,10 @@ function TaskList({
           task={task}
           removeTask={removeTask}
           toggleComplete={toggleComplete}
+          editTask={editTask}
         />
       ))}
-
     </div>
-
   );
 }
 

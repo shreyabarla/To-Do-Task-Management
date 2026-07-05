@@ -19,7 +19,8 @@ function Home() {
   addTask,
   removeTask,
   toggleComplete,
-  } = useTasks();
+  editTask,
+} = useTasks();
 
   useEffect(() => {
     fetchTasks();
@@ -47,6 +48,7 @@ function Home() {
             tasks={tasks}
             removeTask={removeTask}
             toggleComplete={toggleComplete}
+            editTask={editTask}
           />
         )}
       </main>

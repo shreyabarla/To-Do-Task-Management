@@ -65,15 +65,28 @@ const toggleComplete = async (task) => {
   }
 };
 
+const editTask = async (id, title) => {
+  try {
+    await updateTask(id, {
+      title,
+    });
+
+    await fetchTasks();
+  } catch (err) {
+    console.error(err);
+    setError("Unable to update task.");
+  }
+};
   return {
-    tasks,
-    loading,
-    error,
-    addTask,
-    removeTask,
-    toggleComplete,
-    fetchTasks,
-  };
+  tasks,
+  loading,
+  error,
+  addTask,
+  removeTask,
+  toggleComplete,
+  editTask,
+  fetchTasks,
+};
 }
 
 export default useTasks;
