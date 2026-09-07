@@ -1,75 +1,105 @@
-.task-card{
-    background:white;
-    padding:18px 20px;
-    border-radius:12px;
-    margin-bottom:18px;
-    box-shadow:0px 4px 12px rgba(0,0,0,.08);
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.task-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s;
 }
 
-.task-content{
-
-    display:flex;
-    align-items:center;
-    gap:12px;
+.task-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
-.task-content span{
-
-    font-size:17px;
-    color:#1E293B;
-    font-weight:500;
+.task-left {
+  display: flex;
+  gap: 14px;
+  flex: 1;
 }
 
-.task-content input{
-
-    width:18px;
-    height:18px;
+.task-details h4 {
+  margin: 0;
+  color: #111827;
+  font-size: 16px;
 }
 
-.task-actions{
-
-    display:flex;
-    gap:10px;
+.completed {
+  text-decoration: line-through;
+  color: #9ca3af;
 }
 
-.edit-btn{
-
-    border:none;
-    background:#F59E0B;
-    color:white;
-    padding:10px 14px;
-    border-radius:8px;
-    cursor:pointer;
-
-    display:flex;
-    align-items:center;
-    gap:6px;
+.task-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  align-items: center;
 }
 
-.delete-btn{
-
-    border:none;
-    background:#DC2626;
-    color:white;
-    padding:10px 14px;
-    border-radius:8px;
-    cursor:pointer;
-
-    display:flex;
-    align-items:center;
-    gap:6px;
+.category,
+.priority {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
-.edit-btn:hover{
-
-    background:#D97706;
+.category {
+  background: #dbeafe;
+  color: #1d4ed8;
 }
 
-.delete-btn:hover{
+.priority.high {
+  background: #fee2e2;
+  color: #dc2626;
+}
 
-    background:#B91C1C;
+.priority.medium {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.priority.low {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.due-date {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn,
+.delete-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.edit-btn {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.delete-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.edit-input {
+  padding: 8px;
+  width: 240px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
 }

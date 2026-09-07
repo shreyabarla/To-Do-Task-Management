@@ -1,4 +1,4 @@
-const Task = require("../models/Task");
+const Task = require("../models/taskModel");
 
 // Get all tasks
 const getTasks = async (req, res) => {
@@ -15,16 +15,19 @@ const getTasks = async (req, res) => {
 // Create task
 const createTask = async (req, res) => {
   try {
-    const { title } = req.body;
+    const { title, priority, dueDate } = req.body;
 
+    const task = await Task.create({
+      title,
+      priority,
+      dueDate,
+    });
     if (!title) {
       res.status(400);
       throw new Error("Task title is required");
     }
 
-    const task = await Task.create({
-      title,
-    });
+   
 
     res.status(201).json(task);
   } catch (error) {
@@ -44,8 +47,8 @@ const updateTask = async (req, res) => {
     }
 
     task.title = req.body.title ?? task.title;
-    task.completed =
-      req.body.completed ?? task.completed;
+    task.completed = req.body.completed ?? task.completed;
+    task.priority = req.body.priority ?? task.priority;
 
     const updatedTask = await task.save();
 

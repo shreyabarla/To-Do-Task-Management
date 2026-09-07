@@ -1,33 +1,24 @@
-.navbar{
-
-background:#2563eb;
-
-color:white;
-
-padding:20px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-box-shadow:0 3px 8px rgba(0,0,0,.15);
-
+.navbar {
+  background: #2563eb;
+  color: white;
+  padding: 16px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-.navbar h1{
-
-font-size:30px;
-
+.navbar-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 20px;
 }
 
-@media(max-width:768px){
-
-.navbar h1{
-
-font-size:22px;
-
+.navbar h1 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 700;
 }
 
+.navbar p {
+  margin-top: 4px;
+  font-size: 13px;
+  opacity: 0.9;
 }

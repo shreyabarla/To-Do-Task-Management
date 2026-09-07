@@ -12,95 +12,92 @@ function TaskItem({
   removeTask,
   toggleComplete,
   editTask,
-})
- {
-    const [isEditing, setIsEditing] = useState(false);
+}) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedTitle, setEditedTitle] = useState(task.title);
 
-const [editedTitle, setEditedTitle] = useState(task.title);
   return (
-    <div className="task-card">
+  <div className="task-card">
+    <div className="task-left">
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={() => toggleComplete(task)}
+      />
 
-      <div className="task-content">
-
-        <input
-          type="checkbox"
-          checked={task.completed}
-          onChange={() => toggleComplete(task)}
-        />
-
-        {isEditing ? (
-  <input
-    type="text"
-    value={editedTitle}
-    onChange={(e) => setEditedTitle(e.target.value)}
-    style={{
-      padding: "8px",
-      width: "250px",
-      marginLeft: "10px",
-    }}
-  />
-) : (
-  <span>{task.title}</span>
-)}
-
-      </div>
-
-      <div className="task-actions">
-
+      <div className="task-details">
   {isEditing ? (
-    <>
-      <button
-  className="edit-btn"
-  onClick={() => {
-    console.log("Save Clicked");
-    console.log(task._id);
-    console.log(editedTitle);
-
-    editTask(task._id, editedTitle);
-
-    setIsEditing(false);
-  }}
->
-  <FaSave />
-  Save
-</button>
-
-      <button
-        className="delete-btn"
-        onClick={() => {
-          setEditedTitle(task.title);
-          setIsEditing(false);
-        }}
-      >
-        <FaTimes />
-        Cancel
-      </button>
-    </>
+    <input
+      className="edit-input"
+      type="text"
+      value={editedTitle}
+      onChange={(e) => setEditedTitle(e.target.value)}
+    />
   ) : (
     <>
-      <button
-        className="edit-btn"
-        onClick={() => setIsEditing(true)}
-      >
-        <FaEdit />
-        Edit
-      </button>
+      <h4 className={task.completed ? "completed" : ""}>
+        {task.title}
+      </h4>
 
-      <button
-        className="delete-btn"
-        onClick={() => removeTask(task._id)}
-      >
-        <FaTrash />
-        Delete
-      </button>
-    </>
-  )}
+      <div className="task-meta">
+        <span className={`priority ${task.priority.toLowerCase()}`}>
+          {task.priority}
+        </span>
 
-</div>
-
+        {task.dueDate && (
+          <span className="due-date">
+            📅 {new Date(task.dueDate).toLocaleDateString("en-GB")}
+          </span>
+        )}
+      </div>
+          </>
+        )}
+      </div>
     </div>
-  );
-}
 
+    <div className="task-actions">
+      {isEditing ? (
+        <>
+          <button
+            className="edit-btn"
+            onClick={() => {
+              editTask(task._id, editedTitle);
+              setIsEditing(false);
+            }}
+          >
+            <FaSave /> Save
+          </button>
+
+          <button
+            className="delete-btn"
+            onClick={() => {
+              setEditedTitle(task.title);
+              setIsEditing(false);
+            }}
+          >
+            <FaTimes /> Cancel
+          </button>
+        </>
+      ) : (
+        <>
+          <button
+            className="edit-btn"
+            onClick={() => setIsEditing(true)}
+          >
+            <FaEdit /> Edit
+          </button>
+
+          <button
+            className="delete-btn"
+            onClick={() => removeTask(task._id)}
+          >
+            <FaTrash /> Delete
+          </button>
+        </>
+      )}
+    </div>
+  </div>
+);
+}
 
 export default TaskItem;

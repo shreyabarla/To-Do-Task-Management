@@ -28,11 +28,9 @@ function useTasks() {
     }
   };
 
-  const addTask = async (title) => {
+  const addTask = async (taskData) => {
   try {
-    await createTask({
-      title,
-    });
+    await createTask(taskData);
 
     await fetchTasks();
   } catch (err) {

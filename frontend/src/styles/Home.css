@@ -1,12 +1,22 @@
 .home {
-  width: 60%;
-  margin: 40px auto;
-  display: flex;
-  flex-direction: column;
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 0 20px;
 }
 
 .home h2 {
-  margin-bottom: 30px;
-  font-size: 28px;
-  color: #1E293B;
+  font-size: 30px;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+
+.section-title {
+  margin: 24px 0 16px;
+  color: #111827;
 }
